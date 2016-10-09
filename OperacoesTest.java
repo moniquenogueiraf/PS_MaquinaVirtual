@@ -101,7 +101,7 @@ public class OperacoesTest {
     List<String> memory = new ArrayList<String>();
     memory.add("1001000000000000");
     memory.add("1001000000000000");
-    assertEquals(2, operacoes.executaOperacao(memory, 0));
+    assertEquals(1, operacoes.executaOperacao(memory, 0));
   }
   
   @Test
@@ -110,7 +110,7 @@ public class OperacoesTest {
     List<String> memory = new ArrayList<String>();
     memory.add("1011000000000000");
     memory.add("1011000000000000");
-    assertEquals(2, operacoes.executaOperacao(memory, 0));
+    assertEquals(1, operacoes.executaOperacao(memory, 0));
   }
   
   @Test
