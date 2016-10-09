@@ -8,16 +8,18 @@
 
 class first
 
-`javac Calculator.java`
+`javac Operacoes.java`
 
 test
 
-`javac -cp .:lib/junit-4.12.jar CalculatorTest.java`
+`javac -cp .:lib/junit-4.12.jar OperacoesTest.java`
 
 ## Execute
 
-`java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore CalculatorTest`
+`java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore OperacoesTest`
 
 
 ## TODO:
-- [x] sample tests
+- [x] test size
+- [ ] test registers
+- [ ] test addressing
