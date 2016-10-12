@@ -1,3 +1,4 @@
+package operacoes;
 import java.util.*;
 /**
  * @author Monique e Letícia
@@ -5,7 +6,7 @@ import java.util.*;
 
 public class Operacoes {
     
-    public int executaOperacao(List<String> memory, int N, int Final){
+    public int executaOperacao(List<String> memory, int N){
         String copiaPalavra = memory.get(N);
         copiaPalavra = copiaPalavra.substring(0, 4);
         int tipoEnd = this.identificaEnd(memory, N);
@@ -44,7 +45,7 @@ public class Operacoes {
             break;    
                 
             case "1000":
-                //WRITE
+                N = this.write(memory, N+1, tipoEnd);
             break;
                 
             case "1001":
@@ -60,7 +61,7 @@ public class Operacoes {
             break;
                 
             case "1100":
-                //READ
+                N = this.read(memory, N);
             break;
                 
             case "1101":
@@ -109,7 +110,7 @@ public class Operacoes {
         }
     }
     
-        private int brPos(List<String> memory, int N, int tipoEnd){
+    private int brPos(List<String> memory, int N, int tipoEnd){
         int operando = this.recebeOperando(memory, N, tipoEnd);
         int acumulador = getACC();
         
@@ -209,6 +210,21 @@ public class Operacoes {
         return N+1;
     }
     
+    private int read(List<String> memory, int N){//ver se tem que converter o input pra mandar em int e não string
+        String copiaPalavra = memory.get(N);
+        N = N + 1;
+        if(copiaPalavra.charAt(6) == '1'){
+            //ERRO
+        }else if(copiaPalavra.charAt(4) == '1' || copiaPalavra.charAt(5) == '1'){
+            setDadoInd(memory.get(N), getInput());//Indireto
+        }else{
+            setDado(memory.get(N), getInput());//Direto
+        }
+        
+        setPC(getPC() + 2);
+        return N + 1;
+    }
+    
     private int ret(List<String> memory){
         setPC(getSP());
         return (getPC() - inicioPC);
@@ -239,6 +255,15 @@ public class Operacoes {
                 
         setACC(acumulador - operando);
         setPC(getPC() + 1); 
+        
+        return N+1;
+    }
+    
+    private int write(List<String> memory, int N, int tipoEnd){
+        int operando = this.recebeOperando(memory, N, tipoEnd);
+        setOutput(operando);
+        
+        setPC(getPC() + 2);
         
         return N+1;
     }
