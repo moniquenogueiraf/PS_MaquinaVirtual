@@ -23,3 +23,9 @@ test
 - [x] test size
 - [ ] test registers
 - [ ] test addressing
+
+## Errors:
+- -1: copy(List<String> memory, int N); tipo de endereçamento do operando 2 foi mal definido/está incorreto.
+- -2: divide(List<String> memory, int N, int tipoEnd); operando inválido, não é possível realizar divisão por 0.
+- -3: read(List<String> memory, int N); tipo de endereçamendo do operando é inválido.
+- -4: stop(int N); (NÃO É ERRO) 
